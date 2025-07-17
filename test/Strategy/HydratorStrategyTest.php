@@ -81,7 +81,7 @@ class HydratorStrategyTest extends TestCase
             sprintf(
                 'Value needs to be an instance of "%s", got "%s" instead.',
                 TestAsset\User::class,
-                is_object($value) ? $value::class : gettype($value)
+                get_debug_type($value)
             )
         );
 
@@ -120,7 +120,7 @@ class HydratorStrategyTest extends TestCase
             sprintf(
                 'Value needs to be an instance of "%s", got "%s" instead.',
                 TestAsset\User::class,
-                is_object($object) ? $object::class : gettype($object)
+                get_debug_type($object)
             )
         );
 
@@ -184,7 +184,7 @@ class HydratorStrategyTest extends TestCase
         $this->expectExceptionMessage(
             sprintf(
                 'Value needs to be an array, got "%s" instead.',
-                is_object($value) ? $value::class : gettype($value)
+                get_debug_type($value)
             )
         );
 

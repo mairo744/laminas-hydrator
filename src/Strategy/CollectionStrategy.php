@@ -45,7 +45,7 @@ final class CollectionStrategy implements StrategyInterface
         if (! is_array($value)) {
             throw new Exception\InvalidArgumentException(sprintf(
                 'Value needs to be an array, got "%s" instead.',
-                is_object($value) ? $value::class : gettype($value)
+                get_debug_type($value)
             ));
         }
 
@@ -54,7 +54,7 @@ final class CollectionStrategy implements StrategyInterface
                 throw new Exception\InvalidArgumentException(sprintf(
                     'Value needs to be an instance of "%s", got "%s" instead.',
                     $this->objectClassName,
-                    is_object($object) ? $object::class : gettype($object)
+                    get_debug_type($object)
                 ));
             }
 
@@ -74,7 +74,7 @@ final class CollectionStrategy implements StrategyInterface
         if (! is_array($value)) {
             throw new Exception\InvalidArgumentException(sprintf(
                 'Value needs to be an array, got "%s" instead.',
-                is_object($value) ? $value::class : gettype($value)
+                get_debug_type($value)
             ));
         }
 

@@ -79,7 +79,7 @@ class CollectionStrategyTest extends TestCase
         $this->expectException(Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf(
             'Value needs to be an array, got "%s" instead.',
-            is_object($value) ? $value::class : gettype($value)
+            get_debug_type($value)
         ));
 
         /** @psalm-suppress MixedArgument */
@@ -121,7 +121,7 @@ class CollectionStrategyTest extends TestCase
         $this->expectExceptionMessage(sprintf(
             'Value needs to be an instance of "%s", got "%s" instead.',
             TestAsset\User::class,
-            is_object($object) ? $object::class : gettype($object)
+            get_debug_type($object)
         ));
 
         $strategy->extract($value);
@@ -192,7 +192,7 @@ class CollectionStrategyTest extends TestCase
         $this->expectException(Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf(
             'Value needs to be an array, got "%s" instead.',
-            is_object($value) ? $value::class : gettype($value)
+            get_debug_type($value)
         ));
 
         /** @psalm-suppress MixedArgument */

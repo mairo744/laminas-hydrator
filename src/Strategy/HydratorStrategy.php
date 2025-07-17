@@ -49,7 +49,7 @@ final class HydratorStrategy implements StrategyInterface
                 sprintf(
                     'Value needs to be an instance of "%s", got "%s" instead.',
                     $this->objectClassName,
-                    is_object($value) ? $value::class : gettype($value)
+                    get_debug_type($value)
                 )
             );
         }
@@ -78,7 +78,7 @@ final class HydratorStrategy implements StrategyInterface
             throw new Exception\InvalidArgumentException(
                 sprintf(
                     'Value needs to be an array, got "%s" instead.',
-                    is_object($value) ? $value::class : gettype($value)
+                    get_debug_type($value)
                 )
             );
         }

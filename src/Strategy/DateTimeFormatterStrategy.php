@@ -90,7 +90,7 @@ final class DateTimeFormatterStrategy implements StrategyInterface
         if (! is_string($value)) {
             throw new Exception\InvalidArgumentException(sprintf(
                 'Unable to hydrate. Expected null, string, or DateTimeInterface; %s was given.',
-                is_object($value) ? $value::class : gettype($value)
+                get_debug_type($value)
             ));
         }
 

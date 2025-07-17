@@ -102,7 +102,7 @@ final class HydratorPluginManager extends AbstractSingleInstancePluginManager im
 
         throw new InvalidServiceException(sprintf(
             'Plugin of type %s is invalid; must implement %s',
-            is_object($instance) ? $instance::class : gettype($instance),
+            get_debug_type($instance),
             HydratorInterface::class
         ));
     }
