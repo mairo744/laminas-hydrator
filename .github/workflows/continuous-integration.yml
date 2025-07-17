@@ -9,3 +9,12 @@ on:
 jobs:
   ci:
     uses: laminas/workflow-continuous-integration/.github/workflows/continuous-integration.yml@1.x
+
+  rector:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: composer install --no-progress --no-suggest --prefer-dist
+
+      - name: Run Rector
+        run: composer rector
